@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class PersegiPanjang {
+            #panjang;
+            #lebar;
+
+            constructor(panjang, lebar) {
+                this.setPanjang(panjang);
+                this.setLebar(lebar);
+            }
+
+            setPanjang(value) {
+                if (value <= 0) {
+                    throw new Error('Panjang harus lebih dari nol');
+                }
+                this.#panjang = value;
+            }
+
+            getPanjang() {
+                return this.#panjang;
+            }
+
+            setLebar(value) {
+                if (value <= 0) {
+                    throw new Error('Lebar harus lebih dari nol');
+                }
+                this.#lebar = value;
+            }
+
+            getLebar() {
+                return this.#lebar;
+            }
+
+            hitungLuas() {
+                return this.getPanjang() * this.getLebar();
+            }
+
+            hitungKeliling() {
+                return 2 * (this.getPanjang() + this.getLebar());
+            }
+        }
+
+        try {
+            const persegiPanjang1 = new PersegiPanjang(10, 5);
+            console.log(`Luas: ${persegiPanjang1.hitungLuas()}`);  
+            console.log(`Keliling: ${persegiPanjang1.hitungKeliling()}`); 
+
+            persegiPanjang1.setPanjang(15);
+            console.log(`Panjang baru: ${persegiPanjang1.getPanjang()}`);
+            console.log(`Luas baru: ${persegiPanjang1.hitungLuas()}`); 
+
+        } catch (error) {
+            console.error(error.message);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASS BOOK</title>
+</head>
+<body>
+    <script>
+        class Book {
+            #title; 
+            #author;
+            #year; 
+
+            constructor(title, author, year) {
+                this.setTitle(title);
+                this.setAuthor(author);
+                this.setYear(year);
+            }
+
+            setTitle(title) {
+                this.#title = title;
+            }
+
+            getTitle() {
+                return this.#title;
+            }
+
+            setAuthor(author) {
+                this.#author = author;
+            }
+
+            getAuthor() {
+                return this.#author;
+            }
+
+            setYear(year) {
+                this.#year = year;
+            }
+
+            getYear() {
+                return this.#year;
+            }
+
+            bookDetails() {
+                console.log(`Judul: ${this.getTitle()}`);
+                console.log(`Penulis: ${this.getAuthor()}`);
+                console.log(`Tahun: ${this.getYear()}`);
+            }
+        }
+
+        class Ebook extends Book {
+            #harga; 
+
+            constructor(title, author, year, harga) {
+                super(title, author, year);
+                this.setHarga(harga);
+            }
+
+            setHarga(harga) {
+                this.#harga = harga;
+            }
+
+            getHarga() {
+                return this.#harga;
+            }
+
+            bookDetails() {
+                super.bookDetails(); 
+                console.info(`Harga: Rp${this.getHarga()}`);
+            }
+        }
+
+        const ebook1 = new Ebook("Belajar JavaScript", "John Doe", 2023, 150000);
+        ebook1.bookDetails();
+    </script>
+</body>
+</html>

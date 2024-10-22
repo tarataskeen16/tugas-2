@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cetak</title>
+</head>
+<body>
+    <script>
+        class CetakNama {
+            #name;
+
+            constructor(name) {
+                this.#name = name; 
+            }
+
+            get getName() {
+                return this.#name;
+            }
+
+            set setName(value) {
+                this.#name = value;
+            }
+
+            #sayHello(name) {
+                console.log(`Hello, ${name}`); 
+            }
+
+            #sayBye() {
+                console.log('Good Bye!');
+            }
+
+            say(name) {
+                if (name) {
+                    this.#sayHello(name);
+                } else {
+                    this.#sayBye();
+                }
+            }
+        }
+
+        const nama1 = new CetakNama('Navisa');
+
+        const nama2 = new CetakNama('Taskeen');
+
+        nama2.say('Tara');
+    </script>
+</body>
+</html>
